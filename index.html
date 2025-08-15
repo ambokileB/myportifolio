@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baraka H Ambokile - Software Developer & Data Engineer</title>
+    <meta name="description" content="Highly skilled Software Developer with expertise in Java, Python, React, and data processing. Specializing in ETL pipelines, RESTful APIs, and machine learning solutions.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#home">
+                    <span class="logo-text">Baraka</span>
+                    <span class="logo-dot">.</span>
+                </a>
+            </div>
+            <nav class="navbar" id="navbar">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#portfolio" class="nav-link">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#skills" class="nav-link">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="mobile-menu-btn" id="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+                <div class="hero-badge">
+                    <i class="fas fa-code"></i>
+                    <span>Software Developer</span>
+                </div>
+                <h1 class="hero-title">
+                    Hi, I'm <span class="highlight">Baraka H Ambokile</span>
+                    <br>I Build Robust Software Solutions
+                </h1>
+                <p class="hero-description">
+                    Highly skilled Software Developer with expertise in Java, Python, React, and data processing. Passionate about solving business problems through data-driven solutions and delivering impactful results.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">
+                        <span>View My Work</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <span>Get In Touch</span>
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Technologies</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2024</span>
+                        <span class="stat-label">Graduation Year</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left" data-aos-delay="400">
+                <div class="hero-image-container">
+                    <img src="images/hero-profile.jpg" alt="Baraka H Ambokile - Software Developer">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-rocket"></i>
+                        <span>Fast & Responsive</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Code</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Get to know me better</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="images/about-me.jpg" alt="About Baraka H Ambokile">
+                    <div class="experience-badge">
+                        <span class="years">2024</span>
+                        <span class="text">Graduation<br>Year</span>
+                    </div>
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <h3>Passionate Software Developer Creating Data-Driven Solutions</h3>
+                    <p>
+                        I'm a highly skilled and motivated Software Developer with a strong foundation in software development and data processing. 
+                        I specialize in designing and implementing robust software applications, CI/CD pipelines, performing exploratory data analysis, 
+                        and deriving actionable insights from complex datasets.
+                    </p>
+                    <p>
+                        My expertise spans across Java, Python, React, and data processing tools like Apache Spark and Pandas. 
+                        I'm passionate about solving business problems through data-driven solutions and delivering impactful results.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Software Development</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Data Processing & Analysis</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Machine Learning</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>DevOps & CI/CD</span>
+                        </div>
+                    </div>
+                    <div class="about-cta">
+                        <a href="images/resume.pdf" class="btn btn-primary" download>
+                            <i class="fas fa-download"></i>
+                            <span>Download Resume</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">My Services</h2>
+                <p class="section-subtitle">What I can do for you</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Software Development</h3>
+                    <p>Robust software applications built with Java, Python, and Node.js. Scalable backend systems and RESTful APIs with Spring Boot and Express.</p>
+                    <ul class="service-features">
+                        <li>Java Development</li>
+                        <li>Python Programming</li>
+                        <li>RESTful APIs</li>
+                        <li>Database Management</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Data Processing & ETL</h3>
+                    <p>ETL pipelines and data processing solutions using Apache Spark, PySpark, Pandas, and Apache Airflow for automated data workflows.</p>
+                    <ul class="service-features">
+                        <li>ETL Pipeline Development</li>
+                        <li>Data Validation</li>
+                        <li>Exploratory Data Analysis</li>
+                        <li>Automated Workflows</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Machine Learning</h3>
+                    <p>Deep learning models and AI solutions using Python and neural networks. Specialized in computer vision and natural language processing.</p>
+                    <ul class="service-features">
+                        <li>Deep Neural Networks</li>
+                        <li>Computer Vision (CNN)</li>
+                        <li>Natural Language Processing</li>
+                        <li>AI Chatbot Development</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>DevOps & CI/CD</h3>
+                    <p>Containerization with Docker, orchestration with Kubernetes, and automated CI/CD pipelines for efficient software deployment.</p>
+                    <ul class="service-features">
+                        <li>Docker Containerization</li>
+                        <li>Kubernetes Orchestration</li>
+                        <li>CI/CD Pipelines</li>
+                        <li>Linux Administration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">My Portfolio</h2>
+                <p class="section-subtitle">Recent projects I've worked on</p>
+            </div>
+            
+            <div class="portfolio-filter" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="software">Software Development</button>
+                <button class="filter-btn" data-filter="data">Data Processing</button>
+                <button class="filter-btn" data-filter="ai">Machine Learning</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="software" data-aos="fade-up" data-aos-delay="150">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio/rest-api.jpg" alt="RESTful APIs">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>RESTful APIs</h3>
+                                <p>Scalable and secure RESTful APIs with Spring Boot and Node.js (Express). Leveraged Security and JWT for authentication and authorization.</p>
+                                <div class="portfolio-tech">
+                                    <span>Spring Boot</span>
+                                    <span>Node.js</span>
+                                    <span>JWT</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="https://github.com/ambokileB" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="https://github.com/ambokileB" class="portfolio-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="data" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio/etl-pipeline.jpg" alt="ETL Pipeline">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>ETL Pipeline for Customer Data Analysis</h3>
+                                <p>Developed an ETL pipeline using Python and Apache Airflow to extract, transform (with Pandas), and load data into SQL Server. Implemented data validation and automated error handling.</p>
+                                <div class="portfolio-tech">
+                                    <span>Python</span>
+                                    <span>Apache Airflow</span>
+                                    <span>Pandas</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="portfolio-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="ai" data-aos="fade-up" data-aos-delay="250">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio/healthcare-chatbot.jpg" alt="Healthcare Chatbot">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>AI Healthcare Chatbot System</h3>
+                                <p>Developed using Python and Deep neural network. This chatbot is for helping with quick assistance about health.</p>
+                                <div class="portfolio-tech">
+                                    <span>Python</span>
+                                    <span>Deep Learning</span>
+                                    <span>NLP</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="portfolio-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="ai" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio/snake-detection.jpg" alt="Snake Detection Model">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>Deep Learning Model for Snake Identification</h3>
+                                <p>Developed using Python and Deep neural network. Algorithm used: Convolutional Neural Network (CNN) for identifying snakes by using snake bites.</p>
+                                <div class="portfolio-tech">
+                                    <span>Python</span>
+                                    <span>CNN</span>
+                                    <span>Computer Vision</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="portfolio-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-cta" data-aos="fade-up" data-aos-delay="400">
+                <a href="#contact" class="btn btn-primary">
+                    <span>Start Your Project</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-subtitle">Technologies I work with</p>
+            </div>
+            
+            <div class="skills-content">
+                <div class="skills-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Programming Languages & Frameworks</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <span class="skill-name">Java</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <span class="skill-name">Python</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-node-js"></i>
+                            </div>
+                            <span class="skill-name">Node.js</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <span class="skill-name">React.js</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <span class="skill-name">React Native</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Data Processing & Databases</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <span class="skill-name">MySQL</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <span class="skill-name">PostgreSQL</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <span class="skill-name">Apache Spark</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <span class="skill-name">Apache Airflow</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <span class="skill-name">Pandas & NumPy</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-category" data-aos="fade-up" data-aos-delay="300">
+                    <h3>DevOps & Tools</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <span class="skill-name">Git</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-docker"></i>
+                            </div>
+                            <span class="skill-name">Docker</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-ship"></i>
+                            </div>
+                            <span class="skill-name">Kubernetes</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-linux"></i>
+                            </div>
+                            <span class="skill-name">Linux</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-code-branch"></i>
+                            </div>
+                            <span class="skill-name">CI/CD Pipelines</span>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's work together on your next project</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>barakaambokile278@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+255 683 307 420</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Dar Es Salaam, Tanzania</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/ambokileB" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form" data-aos="fade-left">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">Baraka</span>
+                    <span class="logo-dot">.</span>
+                </div>
+                <p class="footer-text">
+                    Creating robust software solutions that solve real-world problems. Let's build something amazing together.
+                </p>
+                <div class="footer-social">
+                    <a href="https://github.com/ambokileB" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Baraka H Ambokile. All Rights Reserved.</p>
+                <p>Designed & Built with ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+</body>
+</html>

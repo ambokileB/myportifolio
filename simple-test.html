@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Message Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .success {
+            background: #28a745;
+        }
+        .danger {
+            background: #dc3545;
+        }
+        .messages {
+            margin-top: 30px;
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+        }
+        .message {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .message h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .message p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Simple Message Test</h1>
+        
+        <!-- Simple Contact Form -->
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            
+            <button type="submit">Send Message</button>
+        </form>
+        
+        <div id="status"></div>
+        
+        <!-- Test Buttons -->
+        <div style="margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 5px;">
+            <h3>Test Controls:</h3>
+            <button onclick="addTestMessage()" class="success">Add Test Message</button>
+            <button onclick="loadMessages()">Load Messages</button>
+            <button onclick="clearMessages()" class="danger">Clear All Messages</button>
+            <button onclick="checkStorage()">Check Storage</button>
+        </div>
+        
+        <!-- Messages Display -->
+        <div class="messages">
+            <h2>Messages (Total: <span id="messageCount">0</span>)</h2>
+            <div id="messagesList"></div>
+        </div>
+    </div>
+
+    <script>
+        // Simple message storage
+        function saveMessage(messageData) {
+            try {
+                // Get existing messages
+                let messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+                
+                // Add new message
+                const newMessage = {
+                    id: Date.now(),
+                    ...messageData,
+                    date: new Date().toISOString(),
+                    status: 'unread'
+                };
+                
+                messages.unshift(newMessage); // Add to beginning
+                
+                // Save back to localStorage
+                localStorage.setItem('contactMessages', JSON.stringify(messages));
+                
+                console.log('Message saved:', newMessage);
+                return true;
+            } catch (error) {
+                console.error('Error saving message:', error);
+                return false;
+            }
+        }
+
+        function loadMessages() {
+            try {
+                const messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+                const messagesList = document.getElementById('messagesList');
+                const messageCount = document.getElementById('messageCount');
+                
+                messageCount.textContent = messages.length;
+                
+                if (messages.length === 0) {
+                    messagesList.innerHTML = '<p>No messages found.</p>';
+                    return;
+                }
+                
+                const messagesHTML = messages.map((msg, index) => `
+                    <div class="message">
+                        <h3>${msg.name} - ${msg.subject}</h3>
+                        <p><strong>Email:</strong> ${msg.email}</p>
+                        <p><strong>Date:</strong> ${new Date(msg.date).toLocaleString()}</p>
+                        <p><strong>Status:</strong> ${msg.status}</p>
+                        <p><strong>Message:</strong> ${msg.message}</p>
+                        <button onclick="deleteMessage(${msg.id})" class="danger">Delete</button>
+                    </div>
+                `).join('');
+                
+                messagesList.innerHTML = messagesHTML;
+                
+                showStatus(`Loaded ${messages.length} messages successfully!`, 'success');
+            } catch (error) {
+                console.error('Error loading messages:', error);
+                showStatus('Error loading messages: ' + error.message, 'error');
+            }
+        }
+
+        function addTestMessage() {
+            const testMessage = {
+                name: 'Test User ' + Date.now(),
+                email: 'test' + Date.now() + '@example.com',
+                subject: 'Test Message ' + new Date().toLocaleString(),
+                message: 'This is a test message to verify the system is working properly.'
+            };
+            
+            if (saveMessage(testMessage)) {
+                showStatus('Test message added successfully!', 'success');
+                loadMessages(); // Refresh the display
+            } else {
+                showStatus('Failed to add test message!', 'error');
+            }
+        }
+
+        function deleteMessage(messageId) {
+            try {
+                let messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+                messages = messages.filter(msg => msg.id !== messageId);
+                localStorage.setItem('contactMessages', JSON.stringify(messages));
+                
+                showStatus('Message deleted successfully!', 'success');
+                loadMessages(); // Refresh the display
+            } catch (error) {
+                console.error('Error deleting message:', error);
+                showStatus('Error deleting message: ' + error.message, 'error');
+            }
+        }
+
+        function clearMessages() {
+            if (confirm('Are you sure you want to delete ALL messages?')) {
+                localStorage.removeItem('contactMessages');
+                showStatus('All messages cleared!', 'success');
+                loadMessages(); // Refresh the display
+            }
+        }
+
+        function checkStorage() {
+            const stored = localStorage.getItem('contactMessages');
+            console.log('localStorage data:', stored);
+            
+            if (stored) {
+                try {
+                    const messages = JSON.parse(stored);
+                    showStatus(`Storage check: ${messages.length} messages found`, 'info');
+                } catch (e) {
+                    showStatus('Storage check: Invalid JSON data', 'error');
+                }
+            } else {
+                showStatus('Storage check: No data found', 'info');
+            }
+        }
+
+        function showStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('status');
+            statusDiv.innerHTML = `<div class="status ${type}">${message}</div>`;
+            
+            // Auto-hide after 3 seconds
+            setTimeout(() => {
+                statusDiv.innerHTML = '';
+            }, 3000);
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const messageData = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                subject: formData.get('subject'),
+                message: formData.get('message')
+            };
+            
+            if (saveMessage(messageData)) {
+                showStatus('Message sent successfully!', 'success');
+                this.reset(); // Clear form
+                loadMessages(); // Refresh the display
+            } else {
+                showStatus('Failed to send message!', 'error');
+            }
+        });
+
+        // Load messages on page load
+        window.addEventListener('load', function() {
+            loadMessages();
+            checkStorage();
+        });
+    </script>
+</body>
+</html>

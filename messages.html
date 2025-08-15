@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Dashboard - Baraka H Ambokile</title>
+    <meta name="description" content="View and manage contact form messages from your portfolio.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">Baraka</span>
+                    <span class="logo-dot">.</span>
+                </a>
+            </div>
+            <nav class="navbar" id="navbar">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#services" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#portfolio" class="nav-link">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="mobile-menu-btn" id="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Message Dashboard Hero -->
+    <section class="dashboard-hero">
+        <div class="container">
+            <div class="dashboard-hero-content" data-aos="fade-up">
+                <h1>Message Dashboard</h1>
+                <p>Manage and respond to contact form messages from your portfolio visitors.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Statistics -->
+    <section class="message-stats">
+        <div class="container">
+            <div class="stats-grid" data-aos="fade-up">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalMessages">0</h3>
+                        <p>Total Messages</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon unread">
+                        <i class="fas fa-envelope-open"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="unreadMessages">0</h3>
+                        <p>Unread Messages</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon read">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="readMessages">0</h3>
+                        <p>Read Messages</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon today">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="todayMessages">0</h3>
+                        <p>Today's Messages</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Filters -->
+    <section class="message-filters">
+        <div class="container">
+            <div class="filter-controls" data-aos="fade-up">
+                <div class="filter-group">
+                    <label for="statusFilter">Status:</label>
+                    <select id="statusFilter">
+                        <option value="all">All Messages</option>
+                        <option value="unread">Unread Only</option>
+                        <option value="read">Read Only</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="dateFilter">Date Range:</label>
+                    <select id="dateFilter">
+                        <option value="all">All Time</option>
+                        <option value="today">Today</option>
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                    </select>
+                </div>
+                <div class="filter-actions">
+                    <button class="btn btn-outline" id="exportBtn">
+                        <i class="fas fa-download"></i>
+                        Export
+                    </button>
+                    <button class="btn btn-danger" id="clearBtn">
+                        <i class="fas fa-trash"></i>
+                        Clear All
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Messages List -->
+    <section class="messages-section">
+        <div class="container">
+            <div class="messages-container" data-aos="fade-up">
+                <div id="messagesList" class="messages-list">
+                    <!-- Messages will be dynamically loaded here -->
+                </div>
+                <div id="noMessages" class="no-messages" style="display: none;">
+                    <i class="fas fa-inbox"></i>
+                    <h3>No Messages Found</h3>
+                    <p>No messages match your current filters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Modal -->
+    <div id="messageModal" class="message-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Message Details</h2>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="message-details">
+                    <div class="detail-row">
+                        <label>From:</label>
+                        <span id="modalName"></span>
+                    </div>
+                    <div class="detail-row">
+                        <label>Email:</label>
+                        <span id="modalEmail"></span>
+                    </div>
+                    <div class="detail-row">
+                        <label>Subject:</label>
+                        <span id="modalSubject"></span>
+                    </div>
+                    <div class="detail-row">
+                        <label>Date:</label>
+                        <span id="modalDate"></span>
+                    </div>
+                    <div class="detail-row">
+                        <label>Budget:</label>
+                        <span id="modalBudget"></span>
+                    </div>
+                    <div class="detail-row">
+                        <label>Timeline:</label>
+                        <span id="modalTimeline"></span>
+                    </div>
+                    <div class="detail-row full-width">
+                        <label>Message:</label>
+                        <div id="modalMessage" class="message-text"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="replyBtn">
+                    <i class="fas fa-reply"></i>
+                    Reply
+                </button>
+                <button class="btn btn-outline" id="markReadBtn">
+                    <i class="fas fa-check"></i>
+                    Mark as Read
+                </button>
+                <button class="btn btn-danger" id="deleteBtn">
+                    <i class="fas fa-trash"></i>
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">Baraka</span>
+                    <span class="logo-dot">.</span>
+                </div>
+                <p class="footer-text">
+                    Creating robust software solutions that solve real-world problems. Let's build something amazing together.
+                </p>
+                <div class="footer-social">
+                    <a href="https://github.com/ambokileB" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Baraka H Ambokile. All Rights Reserved.</p>
+                <p>Designed & Built with ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/messageStore.js"></script>
+    <script src="js/messageDashboard.js"></script>
+</body>
+</html>

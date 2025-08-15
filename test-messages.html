@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Messages - Baraka H Ambokile</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8fafc;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #1e293b;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+        .test-section h2 {
+            color: #374151;
+            margin-bottom: 15px;
+        }
+        button {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #4f46e5;
+        }
+        .danger {
+            background: #ef4444;
+        }
+        .danger:hover {
+            background: #dc2626;
+        }
+        .success {
+            background: #10b981;
+        }
+        .success:hover {
+            background: #059669;
+        }
+        .output {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+        .status.info {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Message System Test</h1>
+        
+        <div class="test-section">
+            <h2>1. System Status</h2>
+            <button onclick="checkSystemStatus()">Check System Status</button>
+            <div id="systemStatus"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>2. Add Test Message</h2>
+            <button onclick="addTestMessage()" class="success">Add Test Message</button>
+            <button onclick="addMultipleMessages()" class="success">Add 5 Test Messages</button>
+            <div id="addMessageStatus"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>3. View Messages</h2>
+            <button onclick="viewMessages()">View All Messages</button>
+            <button onclick="viewLocalStorage()">View localStorage</button>
+            <div id="messagesOutput"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>4. Clear Messages</h2>
+            <button onclick="clearMessages()" class="danger">Clear All Messages</button>
+            <div id="clearStatus"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>5. Navigation</h2>
+            <button onclick="window.open('contact.html', '_blank')">Open Contact Page</button>
+            <button onclick="window.open('messages.html', '_blank')">Open Messages Dashboard</button>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/messageStore.js"></script>
+    <script>
+        function showStatus(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            element.innerHTML = `<div class="status ${type}">${message}</div>`;
+        }
+
+        function checkSystemStatus() {
+            const status = document.getElementById('systemStatus');
+            
+            if (typeof messageStore !== 'undefined') {
+                const state = messageStore.getState();
+                const stats = messageStore.getStats();
+                
+                status.innerHTML = `
+                    <div class="status success">
+                        ✅ Message Store is working!<br>
+                        Total Messages: ${stats.total}<br>
+                        Unread: ${stats.unread}<br>
+                        Read: ${stats.read}
+                    </div>
+                `;
+            } else {
+                status.innerHTML = `
+                    <div class="status error">
+                        ❌ Message Store not available!<br>
+                        Check if messageStore.js is loaded properly.
+                    </div>
+                `;
+            }
+        }
+
+        function addTestMessage() {
+            if (typeof messageStore !== 'undefined') {
+                const testMessage = {
+                    name: 'Test User ' + Date.now(),
+                    email: 'test' + Date.now() + '@example.com',
+                    subject: 'Test Message ' + new Date().toLocaleString(),
+                    message: 'This is a test message to verify the system is working properly. Sent at: ' + new Date().toLocaleString(),
+                    budget: 'Let\'s discuss',
+                    timeline: 'Flexible'
+                };
+                
+                messageStore.dispatch({
+                    type: MESSAGE_ACTIONS.ADD_MESSAGE,
+                    payload: testMessage
+                });
+                
+                showStatus('addMessageStatus', '✅ Test message added successfully!', 'success');
+                console.log('Test message added:', testMessage);
+            } else {
+                showStatus('addMessageStatus', '❌ Message Store not available!', 'error');
+            }
+        }
+
+        function addMultipleMessages() {
+            if (typeof messageStore !== 'undefined') {
+                for (let i = 1; i <= 5; i++) {
+                    const testMessage = {
+                        name: `Test User ${i}`,
+                        email: `test${i}@example.com`,
+                        subject: `Test Message ${i}`,
+                        message: `This is test message number ${i}. Testing the message system functionality.`,
+                        budget: 'Under $1,000',
+                        timeline: '1-2 weeks'
+                    };
+                    
+                    messageStore.dispatch({
+                        type: MESSAGE_ACTIONS.ADD_MESSAGE,
+                        payload: testMessage
+                    });
+                }
+                
+                showStatus('addMessageStatus', '✅ 5 test messages added successfully!', 'success');
+            } else {
+                showStatus('addMessageStatus', '❌ Message Store not available!', 'error');
+            }
+        }
+
+        function viewMessages() {
+            const output = document.getElementById('messagesOutput');
+            
+            if (typeof messageStore !== 'undefined') {
+                const state = messageStore.getState();
+                const messages = state.messages;
+                
+                if (messages.length === 0) {
+                    output.innerHTML = '<div class="output">No messages found.</div>';
+                } else {
+                    const formattedMessages = messages.map((msg, index) => {
+                        return `Message ${index + 1}:
+ID: ${msg.id}
+Name: ${msg.name}
+Email: ${msg.email}
+Subject: ${msg.subject}
+Status: ${msg.status}
+Date: ${new Date(msg.date).toLocaleString()}
+Message: ${msg.message.substring(0, 100)}...
+Budget: ${msg.budget || 'Not specified'}
+Timeline: ${msg.timeline || 'Not specified'}
+----------------------------------------`;
+                    }).join('\n\n');
+                    
+                    output.innerHTML = `<div class="output">${formattedMessages}</div>`;
+                }
+            } else {
+                output.innerHTML = '<div class="output">Message Store not available!</div>';
+            }
+        }
+
+        function viewLocalStorage() {
+            const output = document.getElementById('messagesOutput');
+            const stored = localStorage.getItem('contactMessages');
+            
+            if (stored) {
+                try {
+                    const messages = JSON.parse(stored);
+                    output.innerHTML = `<div class="output">localStorage Data:\n${JSON.stringify(messages, null, 2)}</div>`;
+                } catch (e) {
+                    output.innerHTML = `<div class="output">Error parsing localStorage: ${e.message}</div>`;
+                }
+            } else {
+                output.innerHTML = '<div class="output">No data in localStorage</div>';
+            }
+        }
+
+        function clearMessages() {
+            if (typeof messageStore !== 'undefined') {
+                messageStore.dispatch({
+                    type: MESSAGE_ACTIONS.CLEAR_MESSAGES
+                });
+                showStatus('clearStatus', '✅ All messages cleared successfully!', 'success');
+            } else {
+                localStorage.removeItem('contactMessages');
+                showStatus('clearStatus', '✅ localStorage cleared!', 'success');
+            }
+        }
+
+        // Auto-check system status on page load
+        window.addEventListener('load', function() {
+            setTimeout(checkSystemStatus, 500);
+        });
+    </script>
+</body>
+</html>
